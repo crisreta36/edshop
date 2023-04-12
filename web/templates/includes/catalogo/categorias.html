@@ -1,0 +1,16 @@
+<div class="blog-sb-widget multishopcategories_widget">
+    <h3 class="widgettitle">Lista de Categorias</h3>
+    <div class="section-sb-current">
+        <ul class="section-sb-list">
+            {% for categoria in categorias %}
+            <li>
+                <a href="{% url 'web:productosPorCategoria' categoria.id %}">
+                    <span class="section-sb-label">{{ categoria.nombre }}<!-- con esto digo cuantos productos existen dentro de esta categoria -->
+                        <span class="count">{{ categoria.producto_set.all.count }}</span><!-- __set es para decierle que me tariga el listado de un subconjunto una subclase q le pertenece a una clase superiror trae el lsitado de productos ala categoria ala cual estoy recorriendo -->
+                    </span>
+                </a>
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+</div>
